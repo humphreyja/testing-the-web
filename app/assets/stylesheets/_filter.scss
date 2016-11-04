@@ -1,0 +1,28 @@
+main.filter {
+  position: relative;
+  &::before,
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    content: '';
+    mix-blend-mode: screen;
+  }
+
+  &::after {
+    background: url(image-path("gradients/gradient-1-sm.jpeg")) no-repeat;
+    background-size: cover;
+    background-position: 65% 11%;
+    opacity: 0.5;
+  }
+
+  &::before {
+    background: black;
+  }
+
+  input {
+    z-index: 1;
+  }
+}

@@ -1,0 +1,83 @@
+@mixin transparent-button($before-grad, $after-grad, $border-radius: 3px, $border-size: 1px) {
+  @supports(mix-blend-mode: lighten) {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    color: #000;
+    background: #fff;
+    mix-blend-mode: multiply;
+    border-radius: $border-radius;
+    padding: 5px 10px;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      border-radius: $border-radius + 1;
+      content: '';
+      display: block;
+      position: absolute;
+      top: $border-size * -1;
+      right: $border-size * -1;
+      bottom: $border-size * -1;
+      left: $border-size * -1;
+      pointer-events: none;
+      mix-blend-mode: screen;
+    }
+
+    &::before {
+      background-image: -webkit-linear-gradient(left top, $before-grad);
+      background-image: -moz-linear-gradient(bottom right, $before-grad);
+      background-image: -o-linear-gradient(bottom right, $before-grad);
+      background-image: linear-gradient(to bottom right, $before-grad);
+    }
+
+    &::after {
+      background-image: -webkit-linear-gradient(right top, $after-grad);
+      background-image: -moz-linear-gradient(bottom left, $after-grad);
+      background-image: -o-linear-gradient(bottom left, $after-grad);
+      background-image: linear-gradient(to bottom left, $after-grad);
+    }
+  }
+}
+
+@mixin button($before-grad, $after-grad, $border-radius: 3px, $border-size: 1px) {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: white;
+  background: #fff;
+  border-radius: $border-radius;
+  padding: 5px 10px;
+  z-index: 1;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    border-radius: $border-radius + 1;
+    content: '';
+    display: block;
+    position: absolute;
+    top: $border-size * -1;
+    right: $border-size * -1;
+    bottom: $border-size * -1;
+    left: $border-size * -1;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &::before {
+    background-image: -webkit-linear-gradient(left top, $before-grad);
+    background-image: -moz-linear-gradient(bottom right, $before-grad);
+    background-image: -o-linear-gradient(bottom right, $before-grad);
+    background-image: linear-gradient(to bottom right, $before-grad);
+  }
+
+  &::after {
+    background-image: -webkit-linear-gradient(right top, $after-grad);
+    background-image: -moz-linear-gradient(bottom left, $after-grad);
+    background-image: -o-linear-gradient(bottom left, $after-grad);
+    background-image: linear-gradient(to bottom left, $after-grad);
+  }
+}

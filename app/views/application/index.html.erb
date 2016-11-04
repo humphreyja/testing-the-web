@@ -1,0 +1,85 @@
+<header>
+  <h1>Minimal Design</h1>
+  <nav>
+    <input id="toggle-header-nav" type="checkbox"></input>
+    <label for="toggle-header-nav">home</label>
+    <div class="sub-nav">
+      <%= link_to "about", about_path %>
+      <%= link_to "Fog", fog_path %>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <div class="banner">
+    <div class="container">
+      <h1>Welcome</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+      </p>
+      <div class="button white">
+        Visit Store
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Solid</h1>
+    <div class="button">
+      Select
+    </div>
+    <div class="button blue">
+      Select
+    </div>
+
+    <div class="button red">
+      Select
+    </div>
+
+    <div class="button green">
+      Select
+    </div>
+
+    <div class="button-container">
+      <div class="button green tight">
+        Accept
+      </div>
+      <div class="button red tight">
+        Decline
+      </div>
+    </div>
+
+    <h1>Transparent</h1>
+    <div class="button transparent">
+      Select
+    </div>
+    <div class="button transparent blue">
+      Select
+    </div>
+
+    <div class="button transparent green">
+      Select
+    </div>
+
+    <div class="button transparent red">
+      Select
+    </div>
+
+    <div class="button transparent blue hue">
+      Select
+    </div>
+
+    <div class="loading-button">
+
+    </div>
+  </div>
+</main>
+
+<script>
+  function clicked(node) {
+    node.className += " loading";
+    var curr_text = node.innerHTML;
+    node.innerHTML = '';
+  }
+</script>

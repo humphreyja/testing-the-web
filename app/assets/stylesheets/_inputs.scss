@@ -1,0 +1,30 @@
+input[type="text"] {
+  -webkit-appearance: none;
+  border: 0;
+  border-radius: 3px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-family: 'Work Sans';
+  font-weight: 300;
+  display: inline-flex;
+}
+
+::-webkit-input-placeholder {
+   color: #666;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+   color: #666;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+   color: #666;
+}
+
+:-ms-input-placeholder {
+   color: #666;
+}
+
+.toggle[type="checkbox"] {
+  display: none;
+}

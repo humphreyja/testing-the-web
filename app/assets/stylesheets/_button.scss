@@ -1,0 +1,232 @@
+$hue-grad-before: rgb(179, 155, 178) -34%, rgba(100, 100, 100, 0.7) 19%, rgba(230, 228, 228, 0.48) 43%, rgb(109, 106, 106) 65%, rgb(255, 255, 255) 161%;
+$hue-grad-after: #ff75fb -15%, rgba(169, 138, 173, 0.6) 20%, rgba(93, 89, 101, 0.6) 43%, rgb(58, 84, 93) 65%, rgba(0, 208, 255, 0.76) 161%;
+
+$tb: rgba(249, 0, 238, 0.52) -34%, rgba(234, 163, 255, 0.7) 19%, rgba(130, 130, 130, 0.52) 43%, rgba(115, 141, 150, 0.65) 65%, rgb(0, 211, 255) 114%;
+$ta: rgba(128, 125, 128, 0.57) -15%, rgba(161, 163, 173, 0.6) 20%, rgba(153, 165, 171, 0.6) 43%, rgba(164, 169, 175, 0.56) 65%, rgba(97, 97, 97, 0.61) 161%;
+
+$green-grad-before: rgba(60, 255, 99, 0.65) -15%, rgba(27, 224, 81, 0.65) 20%, rgba(48, 241, 27, 0.62) 43%, rgba(18, 175, 45, 0.61) 65%, rgba(26, 78, 30, 0.6) 161%;
+$green-grad-after: rgba(34, 187, 47, 0.51) -34%, rgba(40, 212, 60, 0.71) 19%, rgba(51, 222, 96, 0.68) 43%, rgba(89, 232, 107, 0.61) 65%, rgba(23, 255, 51, 0.63) 161%;
+
+$red-grad-before: rgba(255, 60, 60, 0.65) -15%, rgba(253, 55, 55, 0.71) 20%, rgba(241, 27, 27, 0.62) 43%, rgba(251, 52, 52, 0.61) 65%, rgba(255, 255, 255, 0.54) 113%;
+$red-grad-after: rgba(216, 31, 31, 0.51) -34%, rgba(243, 63, 63, 0.71) 19%, rgba(255, 73, 73, 0.68) 43%, rgba(255, 33, 33, 0.61) 65%, rgba(255, 23, 23, 0.63) 161%;
+
+$blue-grad-before: rgba(47, 148, 247, 0.74) -15%, rgba(48, 94, 197, 0.77) 24%, #7eacff 50%, rgba(39, 99, 195, 0.91) 65%, rgba(39, 46, 130, 0.6) 161%;
+$blue-grad-after: rgba(28, 85, 195, 0.15) -34%, rgba(9, 51, 243, 0.44) 19%, #2852ff 43%, rgba(3, 71, 255, 0.78) 65%, rgba(16, 90, 224, 0.63) 161%;
+
+
+
+@import "mixins";
+
+.button {
+  z-index: 1;
+  &:not(.transparent) {
+
+    &:hover:not(.white) {
+      mix-blend-mode: multiply !important;
+
+      &::before,
+      &::after {
+        mix-blend-mode: inherit !important;
+      }
+    }
+
+    &.green {
+      @include button($green-grad-before, $green-grad-after, 3px, 1px);
+    }
+
+    &.red {
+      @include button($red-grad-before, $red-grad-after, 3px, 1px);
+    }
+
+    &.blue {
+      @include button($blue-grad-before, $blue-grad-after, 3px, 1px);
+    }
+
+    &.white {
+      display: inline-block;
+      color: grey;
+      border-radius: 3px;
+      padding: 5px 10px;
+      cursor: pointer;
+      mix-blend-mode: hard-light;
+      background: white;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    &:not(.green):not(.red):not(.blue):not(.white) {
+      $grad-color: #ffffff, #f3f3f3;
+      border: 1px solid #aaa;
+      display: inline-block;
+      color: #3e3e3e;
+      border-radius: 3px;
+      padding: 5px 10px;
+      background-image: -webkit-linear-gradient(left top, $grad-color);
+      background-image: -moz-linear-gradient(bottom right, $grad-color);
+      background-image: -o-linear-gradient(bottom right, $grad-color);
+      background-image: linear-gradient(to bottom right, $grad-color);
+      cursor: pointer;
+
+      &:hover {
+        $grad-color: #f3f3f3, #ffffff;
+        -webkit-transition: background 2s;
+        transition: background 2s;
+        background: -webkit-linear-gradient(left top, $grad-color);
+        background-image: -moz-linear-gradient(bottom right, $grad-color);
+        background-image: -o-linear-gradient(bottom right, $grad-color);
+        background: linear-gradient(to bottom right, $grad-color);
+      }
+    }
+
+  }
+
+  &.transparent {
+
+    &:hover {
+      &::before,
+      &::after {
+        mix-blend-mode: soft-light !important;
+      }
+    }
+
+    &.green {
+      @include transparent-button($green-grad-before, $green-grad-after, 3px, 1px);
+    }
+
+    &.red {
+      @include transparent-button($red-grad-before, $red-grad-after, 3px, 1px);
+    }
+
+    &.blue {
+      $blue-grad-before: rgba(60, 159, 255, 0.65) -15%, rgba(48, 94, 197, 0.77) 20%, rgba(36, 105, 228, 0.67) 43%, rgba(25, 51, 93, 0.72) 65%, rgba(39, 46, 130, 0.6) 161%;
+      $blue-grad-after: rgb(255, 255, 255) -8%, rgba(9, 51, 243, 0.44) 19%, rgba(71, 92, 255, 0.8) 43%, rgba(3, 71, 255, 0.78) 65%, rgb(9, 28, 255) 130%;
+      $blue-hue-grad-before: rgba(60, 159, 255, 0.65) -15%, rgba(0, 8, 255, 0.67) 20%, #005bff 43%, rgb(35, 0, 234) 65%, rgba(19, 74, 230, 0.75) 161%;
+      $blue-hue-grad-after: rgba(28, 85, 195, 0.15) -34%, rgb(149, 116, 255) 19%, rgb(0, 88, 255) 43%, rgb(0, 76, 255) 65%, rgb(5, 94, 255) 161%;
+
+      &.hue {
+        @include transparent-button($blue-hue-grad-before, $blue-hue-grad-after, 3px, 1px);
+      }
+
+      &:not(.hue) {
+        @include transparent-button($blue-grad-before, $blue-grad-after, 3px, 1px);
+      }
+
+    }
+
+    &:not(.green):not(.red):not(.blue) {
+      @include transparent-button($tb, $ta, 3px, 1px);
+    }
+  }
+
+  &.loading {
+    padding: 15px !important;
+    border-radius: 100% !important;
+
+    &::before,
+    &::after {
+      border-radius: 100% !important;
+      right: 0px !important;
+      bottom: 0px !important;
+    }
+  }
+
+  &.tight {
+    border-radius: 0 !important;
+    &::before,
+    &::after {
+      border-radius: 0 !important;
+      right: 1px !important;
+      top: 1px !important;
+    }
+  }
+
+  &.circle {
+    border-radius: 100% !important;
+
+    &::before,
+    &::after {
+      border-radius: 100% !important;
+    }
+  }
+
+  &.small {
+    font-size: 12px !important;
+    padding: 0 4px !important;
+  }
+}
+
+.button-container {
+  display: flex;
+}
+
+@-webkit-keyframes rotating /* Safari and Chrome */ {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes rotating {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.loading-button {
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  border-radius: 100%;
+  border: 1px solid blue;
+  position: relative;
+  height: 22px;
+  width: 22px;
+  margin: -7px 5px;
+
+  &::after {
+
+    $grad-color: white, transparent;
+    content: '';
+    position: absolute;
+    top: -2px;
+    bottom: 7px;
+    right: -1px;
+    left: -1px;
+    width: 3px;
+    margin: auto;
+    // background: -webkit-linear-gradient(top, $grad-color);
+    // background: -moz-linear-gradient(top, $grad-color);
+    // background: -o-linear-gradient(top, $grad-color);
+    // background: linear-gradient(to top, $grad-color);
+    background: white;
+
+    -webkit-animation: rotating 2s linear infinite;
+    -moz-animation: rotating 2s linear infinite;
+    -ms-animation: rotating 2s linear infinite;
+    -o-animation: rotating 2s linear infinite;
+    animation: rotating 2s linear infinite;
+    transform-origin: 65% 80%;
+  }
+}

@@ -1,0 +1,49 @@
+@keyframes move_image /* Safari and Chrome */ {
+  0%   {background-position: 0% 0%;}
+
+  50%  {background-position: 100% 100%;}
+
+  100% {background-position: 0% 0%;}
+}
+
+.banner {
+  position: relative;
+  color: white;
+  mix-blend-mode: multiply;
+  padding: 60px 0;
+  overflow: hidden;
+
+  h1 {
+    font-weight: 300;
+    font-size: 60px;
+  }
+
+  h1, p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .button {
+    margin: 10px 0;
+  }
+
+  &::before {
+    -webkit-animation: move_image 60s linear infinite;
+    -moz-animation: move_image 60s linear infinite;
+    -ms-animation: move_image 60s linear infinite;
+    -o-animation: move_image 60s linear infinite;
+    animation: move_image 60s linear infinite;
+
+    background: url(image-path("gradients/gradient-1-sm.jpeg")) no-repeat;
+    background-size: cover;
+    background-position: 65% 11%;
+    mix-blend-mode: screen;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    content: '';
+  }
+}

@@ -1,0 +1,16 @@
+.logo {
+  height: 100px;
+  width: 100px;
+
+  &.white {
+    background-image: url(image-path("apple-white.svg"));
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+  &:not(.white) {
+    background-image: url(image-path("apple.png"));
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}

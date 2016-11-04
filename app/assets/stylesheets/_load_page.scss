@@ -1,0 +1,35 @@
+// @keyframes zoom /* Safari and Chrome */ {
+//   0%   {
+//     transform: scale(.8, .8);
+//   }
+//   100% {
+//     transform: scale(1, 1);
+//   }
+// }
+//
+// html {
+//   background: grey;
+//   height: 100%;
+//   width: 100%;
+//   display: flex;
+// }
+//
+// body {
+//   opacity: 0;
+//   height: 100%;
+//   width: 100%;
+//   background: white;
+//   box-shadow: 0px 0px 300px #333;
+// }
+//
+// body.loaded {
+//   transition: opacity .3s cubic-bezier(1, 0.08, 0.61, 0.99);
+//   -webkit-animation: zoom .2s linear;
+//   -moz-animation: zoom .2s linear;
+//   -ms-animation: zoom .2s linear;
+//   -o-animation: zoom .2s linear;
+//   animation: zoom .2s linear;
+//   transform: scale(1, 1);
+//   opacity: 1;
+//
+// }
